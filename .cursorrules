@@ -1,0 +1,1 @@
+When generating git commit messages, always follow the **Conventional Commits** specification. Use types like feat, fix, docs, style, refactor, perf, test, chore. The format should be type(scope): description.
