@@ -1,8 +1,23 @@
+import { Navigate, Route, Routes } from 'react-router';
+import { DashboardLayout } from './components/layout/DashboardLayout';
+import { ArchivePage } from './pages/ArchivePage';
+import { RetrospectiveDetailPage } from './pages/RetrospectiveDetailPage';
+import { RetrospectivePage } from './pages/RetrospectivePage';
+import { RetrospectiveResultPage } from './pages/RetrospectiveResultPage';
+import { RetrospectiveSubmitPage } from './pages/RetrospectiveSubmitPage';
+
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <h1 className="text-4xl font-bold text-blue-600">Hello, Tailwind CSS v4!</h1>
-    </div>
+    <Routes>
+      <Route element={<DashboardLayout />}>
+        <Route index element={<Navigate to="/retrospective" replace />} />
+        <Route path="retrospective" element={<RetrospectivePage />} />
+        <Route path="retrospective/:id" element={<RetrospectiveDetailPage />} />
+        <Route path="retrospective/:id/submit" element={<RetrospectiveSubmitPage />} />
+        <Route path="retrospective/:id/result" element={<RetrospectiveResultPage />} />
+        <Route path="archive" element={<ArchivePage />} />
+      </Route>
+    </Routes>
   );
 }
 
